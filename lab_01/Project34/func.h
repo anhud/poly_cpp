@@ -8,7 +8,9 @@
 #include <vector>
 
 using namespace std;
+using text = vector<vector<string>>;
+using sentence = vector<string>;
 
 void TextInput(string FileName, int str_len);
-void TextToWords(vector<string> line_cur, int str_len);
-void TextFormat(vector<vector<string>> words, int str_len);
+void TextToWords(sentence line_cur, int str_len);
+void TextFormat(text words, int str_len);

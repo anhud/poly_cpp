@@ -2,7 +2,7 @@
 
 void TextInput(string FileName, int str_len)
 {
-	std::vector<string> line_cur;
+	sentence line_cur;
 	std::string line;
 	std::ifstream in(FileName);
 
@@ -17,13 +17,13 @@ void TextInput(string FileName, int str_len)
 	TextToWords(line_cur, str_len);
 }
 
-void TextToWords(vector<string> line_cur, int str_len)
+void TextToWords(sentence line_cur, int str_len)
 {
-	std::vector<vector<string>> words;
+	text words;
 	std::string line;
-	std::vector<string> words_cur;
+	sentence words_cur;
 
-	for (auto line_ : line_cur)
+	for (auto &line_ : line_cur)
 	{
 		std::istringstream iss(line_);
 
@@ -40,13 +40,13 @@ void TextToWords(vector<string> line_cur, int str_len)
 	return;
 }
 
-void TextFormat(vector<vector<string>> words, int str_len)
+void TextFormat(text words, int str_len)
 {
 	std::string cur_line;
 	int len;
 	int spaces;
 
-	for (auto line : words)
+	for (auto &line : words)
 	{
 		if (line.size() == 0)   // checking for extra line breaks
 		{
