@@ -6,6 +6,7 @@ button: 0.3 0.3 0.7 0.35 close
 //other menu: 1
 menu: 0.3 0.3 0.6 0.6
 button: 0.35 0.35 0.5 0.4 close
+button: 0.35 0.35 0.5 0.4 close
 //other other menu: 2
 menu: -0.4 -0.4 0.3 0
 button: -0.35 -0.35 0.25 -0.15 close

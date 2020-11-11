@@ -16,16 +16,10 @@ void ProcessSpecialKeys(int key, int x, int y) {
 
 	switch (key) {
 	case GLUT_KEY_DOWN:
-		if (current_menu->active_id < current_menu->buttons.size() - 1)
-		{
-			current_menu->active_id++;
-		}
+		current_menu->move(down);
 		break;
 	case GLUT_KEY_UP:
-		if (current_menu->active_id > 0)
-		{
-			current_menu->active_id--;
-		}
+		current_menu->move(up);
 		break;
 	}
 }
@@ -40,16 +34,16 @@ void ProcessNormalKeys(unsigned char key, int x, int y) {
 	case 13:
 	{
 		menu *current_menu = GetCurrentMenu();
-		button cur = current_menu->buttons[current_menu->active_id];
+		string action = current_menu->get_action();
 
-		if (CheckIfInteger(cur.text))
+		if (CheckIfInteger(action))
 		{
-			MenuOpen(stoi(cur.text));
+			MenuOpen(stoi(action));
 			return;
 		}
 		else
 		{
-			if (cur.text.compare("close") == 0)
+			if (action.compare("close") == 0)
 			{
 				CloseCurrentMenu();
 				return;
