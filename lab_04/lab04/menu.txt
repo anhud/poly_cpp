@@ -1,0 +1,10 @@
+//main menu: 0
+menu: -0.4 0.2 0.4 0.8
+button: -0.3 0.6 0.3 0.7 1
+button: -0.3 0.4 0.3 0.5 exit
+//other menu: 1
+menu: -0.05 -0.05 0.2 0.2 
+button: 0.0 0.1 0.05 0.15 leveltest.txt
+button: 0.0 0.0 0.05 0.05 leveltest2.txt
+button: 0.1 0.1 0.15 0.15 leveltest3.txt
+button: 0.1 0.0 0.15 0.05 close
