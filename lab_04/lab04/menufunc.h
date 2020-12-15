@@ -6,12 +6,10 @@
 #include <sstream>
 #include <cstdlib>
 #include <string>
-#include <vector>
 
 #include "shapes.h"
 
 using namespace std;
-using text = vector<string>;
 typedef enum { up, down } direction;
 
 class button {

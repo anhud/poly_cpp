@@ -20,8 +20,10 @@ void main(int argc, char **argv)
 	glutCreateWindow("test");
 	glClearColor(0.8f, 0.8f, 0.8f, 1.0f);
 
+	glutIgnoreKeyRepeat(1);
 	glutKeyboardFunc(ProcessNormalKeys);
 	glutSpecialFunc(ProcessSpecialKeys);
+	glutSpecialUpFunc(ProcessKeysUp);
 
 	glutDisplayFunc(RenderWindow);
 	glutIdleFunc(RenderWindow);

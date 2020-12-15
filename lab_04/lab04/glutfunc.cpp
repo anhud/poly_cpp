@@ -21,6 +21,7 @@ void ProcessSpecialKeys(int key, int x, int y) {
 	{
 	case 1:
 	{
+		//glutSetKeyRepeat(GLUT_KEY_REPEAT_OFF);
 		switch (key) {
 		case GLUT_KEY_DOWN:
 			current_menu->move(down);
@@ -33,14 +34,15 @@ void ProcessSpecialKeys(int key, int x, int y) {
 	break;
 	case 2:
 	{
-		/*
+		//glutSetKeyRepeat(GLUT_KEY_REPEAT_ON);
 		switch (key) {
 		case GLUT_KEY_RIGHT:
 			MovePlatform(right_);
+			break;
 		case GLUT_KEY_LEFT:
 			MovePlatform(left_);
+			break;
 		}
-		*/
 	}
 	break;
 	}
@@ -75,10 +77,15 @@ void ProcessNormalKeys(unsigned char key, int x, int y) {
 					CloseCurrentMenu();
 					return;
 				}
-				if (action.compare("start") == 0)
+				else if (action.compare("exit") == 0)
+				{
+					exit(0);
+					return;
+				}
+				else
 				{
 					mode = 2;
-					InitGame("test");
+					InitGame(action);
 					return;
 				}
 				// further functions there
@@ -95,6 +102,18 @@ void ProcessNormalKeys(unsigned char key, int x, int y) {
 		}
 	}
 	break;
+	}
+}
+
+void ProcessKeysUp(int key, int x, int y) {
+
+	switch (key) {
+	case GLUT_KEY_RIGHT:
+		StopPlatform(right_);
+		break;
+	case GLUT_KEY_LEFT:
+		StopPlatform(left_);
+		break;
 	}
 }
 
@@ -135,4 +154,9 @@ void RenderWindow(void)
 	}
 	
 	glutSwapBuffers();
+}
+
+void BackToMenu(void)
+{
+	mode = 1;
 }

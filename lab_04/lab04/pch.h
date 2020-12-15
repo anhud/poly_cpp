@@ -6,6 +6,16 @@
 #include <gl/gl.h>
 #include <gl/glu.h>
 #include <gl/glut.h>
+#include <vector>
+#include <math.h>
 
 typedef enum { left_, right_ } move_direction;
+typedef struct point_t {
+	double x;
+	double y;
+} point;
+
+using namespace std;
+using text = vector<string>;
+
 #endif //PCH_H
